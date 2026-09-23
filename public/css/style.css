@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1a5276;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav {
+    background-color: #154360;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    color: #1a5276;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #154360;
+    font-size: 1.3rem;
+}
+
+section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Formulaires */
+form, .create-catway div, .create-reservation div, .create-user div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 400px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="submit"],
+button {
+    background-color: #1a5276;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #154360;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+table input[type="text"],
+table input[type="date"] {
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 0.85rem;
+}
+th, td {
+    text-align: left;
+    padding: 0.5rem;
+    overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #eaf2f8;
+    color: #154360;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+td form {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: none;
+}
+
+/* Messages d'erreur */
+.error {
+    color: #c0392b;
+    background-color: #fdecea;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Section infos utilisateur (dashboard) */
+.user-info p {
+    margin-bottom: 0.4rem;
+}
+
+/* Liens de doc / accueil */
+.doc-link a {
+    color: #1a5276;
+    font-weight: 500;
+}

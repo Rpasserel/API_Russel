@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des utilisateurs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/dashboard">Tableau de bord</a>
+        <a href="/catways/manage">Gérer les catways</a>
+        <a href="/reservations/manage">Gérer les réservations</a>
+        <a href="/api-docs">Documentation de l'API</a>
+        <a href="/logout">Se deconnecter</a>    </nav>
+    </nav>
+
+    <main>
+        <h1>Gestion des utilisateurs</h1>
+
+        <section class="create-user">
+            <h2>Créer un utilisateur</h2>
+            <div>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" required>
+
+                <button onclick="createUser()">Créer</button>
+            </div>
+        </section>
+
+        <section class="list-users">
+            <h2>Liste des utilisateurs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td>
+                                <input type="text" id="username-<%= user.email %>" value="<%= user.username %>">
+                            </td>
+                            <td><%= user.email %></td>
+                            <td>
+                                <button onclick="updateUser('<%= user.email %>')">Modifier</button>
+                                <button onclick="deleteUser('<%= user.email %>')">Supprimer</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="/js/users.js"></script>
+
+</body>
+</html>

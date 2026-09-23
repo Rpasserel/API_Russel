@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation de l'API</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Documentation de l'API — Port de Plaisance Russell</h1>
+        <nav>
+            <% if (isLoggedIn) { %>
+                <a href="/dashboard">Retour au tableau de bord</a>
+            <% } else { %>
+                <a href="/">Retour à la page de connexion</a>
+            <% } %>        
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Authentification</h2>
+            <table>
+                <thead>
+                    <tr><th>Méthode</th><th>Route</th><th>Description</th><th>Body</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>POST</td>
+                        <td>/login</td>
+                        <td>Connexion, renvoie un token JWT via cookie</td>
+                        <td><code>{ "email", "password" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/logout</td>
+                        <td>Déconnexion</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Utilisateurs</h2>
+            <table>
+                <thead>
+                    <tr><th>Méthode</th><th>Route</th><th>Description</th><th>Body</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/users</td>
+                        <td>Liste tous les utilisateurs</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/users/:email</td>
+                        <td>Détails d'un utilisateur</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/users</td>
+                        <td>Crée un utilisateur</td>
+                        <td><code>{ "username", "email", "password" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/users/:email</td>
+                        <td>Modifie un utilisateur</td>
+                        <td><code>{ "username", "email", "password" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/users/:email</td>
+                        <td>Supprime un utilisateur</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Catways</h2>
+            <table>
+                <thead>
+                    <tr><th>Méthode</th><th>Route</th><th>Description</th><th>Body</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways</td>
+                        <td>Liste tous les catways</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id</td>
+                        <td>Détails d'un catway (id = catwayNumber)</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/catways</td>
+                        <td>Crée un catway</td>
+                        <td><code>{ "catwayNumber", "catwayType", "catwayState" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/catways/:id</td>
+                        <td>Modifie l'état d'un catway (numéro/type non modifiables)</td>
+                        <td><code>{ "catwayState" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/catways/:id</td>
+                        <td>Supprime un catway</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Réservations</h2>
+            <table>
+                <thead>
+                    <tr><th>Méthode</th><th>Route</th><th>Description</th><th>Body</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id/reservations</td>
+                        <td>Liste les réservations d'un catway</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id/reservations/:idReservation</td>
+                        <td>Détails d'une réservation</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/catways/:id/reservations</td>
+                        <td>Crée une réservation pour ce catway</td>
+                        <td><code>{ "clientName", "boatName", "startDate", "endDate", "description" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/catways/:id/reservations/:idReservation</td>
+                        <td>Modifie une réservation</td>
+                        <td><code>{ "clientName", "boatName", "startDate", "endDate", "description" }</code></td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/catways/:id/reservations/:idReservation</td>
+                        <td>Supprime une réservation</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p><em>Toutes les routes ci-dessus (hors /login) nécessitent d'être authentifié.</em></p>
+    </main>
+
+</body>
+</html>

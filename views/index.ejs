@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Port de plaisance de Russel</h1>
+    </header>
+    <main>
+        <section class="presentation">
+            <p>
+                Bienvenue sur le site de réservation du port de plaisance de Russel, 
+                elle vous permettra de reserver votre Catway sans problème
+            </p>
+        </section>
+        <section class="login-section">
+            <h2>Connexion</h2>
+            <% if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+            <form action="/login" method="POST">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required>
+
+                <input type="submit" value="Se connecter">
+            </form>
+        </section>
+        <section class="doc-link">
+            <a href="/api-docs">Consulter la documention de l'API</a>
+        </section>
+    </main>
+</body>
+</html>

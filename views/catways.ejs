@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des catways</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/dashboard">Tableau de bord</a>
+        <a href="/reservations/manage">Gérer les réservations</a>
+        <a href="/users/manage">Gérer les utilisateurs</a>
+        <a href="/api-docs">Documentation de l'API</a>
+        <a href="/logout">Se deconnecter</a>
+    </nav>
+
+    <main>
+        <h1>Gestion des catways</h1>
+
+        <section class="create-catway">
+            <h2>Créer un catway</h2>
+            <div>
+                <label for="catwayNumber">Numéro</label>
+                <input type="number" id="catwayNumber" required>
+
+                <label for="catwayType">Type</label>
+                <select id="catwayType" required>
+                    <option value="short">Short</option>
+                    <option value="long">Long</option>
+                </select>
+
+                <label for="catwayState">État</label>
+                <input type="text" id="catwayState" required>
+
+                <button onclick="createCatway()">Créer</button>
+            </div>
+        </section>
+
+        <section class="list-catways">
+            <h2>Liste des catways</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Type</th>
+                        <th>État</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% catways.forEach(function(catway) { %>
+                        <tr>
+                            <td><%= catway.catwayNumber %></td>
+                            <td><%= catway.catwayType %></td>
+                            <td>
+                                <input type="text" id="state-<%= catway.catwayNumber %>" value="<%= catway.catwayState %>">
+                            </td>
+                            <td>
+                                <button onclick="updateCatway(<%= catway.catwayNumber %>)">Modifier</button>
+                                <button onclick="deleteCatway(<%= catway.catwayNumber %>)">Supprimer</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="/js/catways.js"></script>
+
+</body>
+</html>
